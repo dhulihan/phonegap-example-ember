@@ -1,16 +1,16 @@
 App.Router.map(function() {
-	this.route("home", { path: '/' });
 	this.route("about", { path: "/about" });
-	this.resource("users", function() {
-		
+	this.resource("users", {path: "/"}, function() {
+		this.route('dead');	
+		this.route('alive');	
 	});
 });
 
-App.HomeRoute = Ember.Route.extend({
-	setupController: function(controller) {
-		// Set the IndexController's `title`
-		controller.set('title', "My App");
-	}
+App.AboutRoute = Ember.Route.extend({
+  setupController: function(controller) {
+    // `controller` is the instance of ApplicationController
+    controller.set('greeting', "Hello there.");
+  }	
 });
 
 App.UsersRoute = Ember.Route.extend({
@@ -18,3 +18,32 @@ App.UsersRoute = Ember.Route.extend({
 		return this.store.find('user');
 	}
 });
+
+
+App.UsersIndexRoute = Ember.Route.extend({
+	model: function() {
+		return this.modelFor('users');
+	}
+});
+
+App.UsersDeadRoute = Ember.Route.extend({
+	model: function() {
+		return this.store.filter('user', function(user){
+			return !user.get('alive');
+		})
+	},
+	renderTemplate: function(controller){
+		this.render('users/index', {controller: controller});
+	}
+})
+
+App.UsersAliveRoute = Ember.Route.extend({
+	model: function() {
+		return this.store.filter('user', function(user){
+			return user.get('alive');
+		})
+	},
+	renderTemplate: function(controller){
+		this.render('users/index', {controller: controller});
+	}
+})

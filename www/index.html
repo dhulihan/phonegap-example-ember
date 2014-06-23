@@ -26,9 +26,8 @@
 						</div>
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
-								<li>{{#link-to "home"}}Home{{/link-to}} </li>
+								<li>{{#link-to "application"}}Home{{/link-to}} </li>
 								<li>{{#link-to "about"}}About{{/link-to}}</li>
-								<li>{{#link-to "users"}}Users{{/link-to}}</li>
 							</ul>
 						</div>
 					</div>
@@ -41,11 +40,8 @@
 				URL: {{target.url}}
 			</div>
 		</script>
-		<script type="text/x-handlebars" data-template-name="home">
-			Welcome to {{title}}.
-		</script>
 		<script type="text/x-handlebars" data-template-name="about">
-			Hi, I am an about page. {{#link-to "home"}}Home{{/link-to}} 
+			{{greeting}}
 		</script>
 		<script type="text/x-handlebars" data-template-name="users">
 			<h2>
@@ -55,6 +51,23 @@
 			<div class="well">
 				{{input type="text" id="new-user" placeholder="What's the name?" value=name action="createUser"}}
 			</div>
+
+
+			<ul class="nav nav-tabs nav-justified">
+				<li>
+				    {{#link-to "users.index" activeClass="selected"}}All{{/link-to}}
+				</li>
+				<li>
+					{{#link-to "users.dead" activeClass="active"}}Dead{{/link-to}}
+				</li>
+				<li>
+  					{{#link-to "users.alive" activeClass="selected"}}Alive{{/link-to}}
+				</li>
+			</ul>
+			{{outlet}}	
+
+		</script>
+		<script type="text/x-handlebars" data-template-name="users/index">
 
 			<ul class="list-group">
 				{{#each itemController="user"}}
@@ -70,15 +83,11 @@
 							</span>
 						{{/if}}
 						<button class="destroy pull-right" {{action "removeUser"}}>Destroy</button>
-						<div>Alive: {{alive}}</div>
+						<div>Alive: {{#if alive}}Yes{{else}}No{{/if}}</div>
 					</li>
 				{{/each}}		
 			</ul>
-						
-			{{#link-to "home"}}Home{{/link-to}} 
-		</script>
-		
-
+		</script>					
 
 		<!-- <script type="text/javascript" src="phonegap.js"></script> -->
 		<script type="text/javascript" src="lib/js/jquery.min.js"></script>		
