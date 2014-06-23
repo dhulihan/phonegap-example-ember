@@ -1,6 +1,5 @@
-# phonegap-ember
+# phonegap-example-ember
 
-An example app made with [PhoneGap](http://phonegap.com/).
-## Credits
+This is an an example app that runs [ember.js](http://emberjs.com/) on [PhoneGap](http://phonegap.com/).
 
-Written by [Dave Hulihan](http://www.davehulihan.com)
+* Written by [Dave Hulihan](http://www.davehulihan.com)
