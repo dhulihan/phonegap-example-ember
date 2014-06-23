@@ -71,18 +71,23 @@ hr {
 
 
 /* Bootstrap */
+.navbar {
+    border-radius: 0;
+}
+
 .navbar-inverse {
     background: url(../img/ember-blue.png);
 }
+
 
 .navbar-inverse .navbar-brand {
     color: white;
     text-shadow: 1px 1px #000;    
 }
 
-.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
-    background: #222;
-}
+
+
+
 
 .nav-header {
     border-radius: 0;
@@ -147,3 +152,4 @@ hr {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+
