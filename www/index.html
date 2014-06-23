@@ -46,7 +46,7 @@
 		<script type="text/x-handlebars" data-template-name="users">
 			<h2>
 				Users
-				<small>{{numAlive}} Alive</small> 
+				<small>{{numHappy}} Happy</small> 
 			</h2>
 			<div class="well">
 				{{input type="text" id="new-user" placeholder="What's the name?" value=name action="createUser"}}
@@ -55,8 +55,8 @@
 
 			<ul class="nav nav-tabs nav-justified">
 				{{#link-to "users.index" tagName="li" href=false}}<a {{bind-attr href="view.href"}}>All</a>{{/link-to}}
-				{{#link-to "users.dead" tagName="li" href=false}}<a {{bind-attr href="view.href"}}>Dead</a>{{/link-to}}
-				{{#link-to "users.alive" tagName="li" href=false}}<a {{bind-attr href="view.href"}}>Alive</a>{{/link-to}}
+				{{#link-to "users.sad" tagName="li" href=false}}<a {{bind-attr href="view.href"}}>Sad</a>{{/link-to}}
+				{{#link-to "users.happy" tagName="li" href=false}}<a {{bind-attr href="view.href"}}>Happy</a>{{/link-to}}
 			</ul>
 			<br />
 			{{outlet}}	
@@ -66,9 +66,9 @@
 
 			<ul class="list-group">
 				{{#each itemController="user"}}
-					<li {{bind-attr class="alive:alive isEditing:editing :list-group-item"}}>
+					<li {{bind-attr class="happy:happy isEditing:editing :list-group-item"}}>
 						<label>
-						    {{input type="checkbox" checked=alive class="toggle"}}
+						    {{input type="checkbox" checked=isHappy class="toggle"}}
 						</label>
 						{{#if isEditing}}
 							{{edit-user class="edit" value=name focus-out="acceptChanges" insert-newline="acceptChanges"}}
@@ -78,7 +78,7 @@
 							</span>
 						{{/if}}
 						<button class="destroy pull-right btn btn-danger" {{action "removeUser"}}>Destroy</button>
-						<div>Alive: {{#if alive}}Yes{{else}}No{{/if}}</div>
+						<div>Happy: {{#if isHappy}}Yes{{else}}No{{/if}}</div>
 					</li>
 				{{/each}}		
 			</ul>

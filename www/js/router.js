@@ -1,14 +1,13 @@
 App.Router.map(function() {
 	this.route("about", { path: "/about" });
 	this.resource("users", {path: "/"}, function() {
-		this.route('dead');	
-		this.route('alive');	
+		this.route('sad');	
+		this.route('happy');	
 	});
 });
 
 App.AboutRoute = Ember.Route.extend({
   setupController: function(controller) {
-    // `controller` is the instance of ApplicationController
     controller.set('greeting', "Hello there.");
   }	
 });
@@ -26,10 +25,10 @@ App.UsersIndexRoute = Ember.Route.extend({
 	}
 });
 
-App.UsersDeadRoute = Ember.Route.extend({
+App.UsersSadRoute = Ember.Route.extend({
 	model: function() {
 		return this.store.filter('user', function(user){
-			return !user.get('alive');
+			return !user.get('isHappy');
 		})
 	},
 	renderTemplate: function(controller){
@@ -37,10 +36,10 @@ App.UsersDeadRoute = Ember.Route.extend({
 	}
 })
 
-App.UsersAliveRoute = Ember.Route.extend({
+App.UsersHappyRoute = Ember.Route.extend({
 	model: function() {
 		return this.store.filter('user', function(user){
-			return user.get('alive');
+			return user.get('isHappy');
 		})
 	},
 	renderTemplate: function(controller){

@@ -16,9 +16,9 @@ App.UsersController = Ember.ArrayController.extend({
 			user.save();
 		}	
 	},
-	numAlive: function() {
-		return this.filterBy('alive', true).get('length');
-	}.property('@each.alive')
+	numHappy: function() {
+		return this.filterBy('isHappy', true).get('length');
+	}.property('@each.isHappy')
 })
 
 

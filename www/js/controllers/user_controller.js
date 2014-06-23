@@ -9,19 +9,19 @@ App.UserController = Ember.ObjectController.extend({
 			this.get('model').save();
 		}
 	},
-	alive: function(key, value){
+	isHappy: function(key, value){
 		var model = this.get('model');
 
 		if (value === undefined) {
 			// property being used as a getter
-			return model.get('alive');
+			return model.get('isHappy');
 		} else {
 			// property being used as a setter
-			model.set('alive', value);
+			model.set('isHappy', value);
 			model.save();
 			return value;
 		}
-	}.property('model.alive'),	
+	}.property('model.isHappy'),	
 	editUser: function() {
 		debug("editUser called.");
 		this.set('isEditing', true);
