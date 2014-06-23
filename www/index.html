@@ -54,16 +54,11 @@
 
 
 			<ul class="nav nav-tabs nav-justified">
-				<li>
-				    {{#link-to "users.index" activeClass="selected"}}All{{/link-to}}
-				</li>
-				<li>
-					{{#link-to "users.dead" activeClass="active"}}Dead{{/link-to}}
-				</li>
-				<li>
-  					{{#link-to "users.alive" activeClass="selected"}}Alive{{/link-to}}
-				</li>
+				{{#link-to "users.index" tagName="li" href=false}}<a {{bind-attr href="view.href"}}>All</a>{{/link-to}}
+				{{#link-to "users.dead" tagName="li" href=false}}<a {{bind-attr href="view.href"}}>Dead</a>{{/link-to}}
+				{{#link-to "users.alive" tagName="li" href=false}}<a {{bind-attr href="view.href"}}>Alive</a>{{/link-to}}
 			</ul>
+			<br />
 			{{outlet}}	
 
 		</script>
@@ -82,7 +77,7 @@
 								{{name}}
 							</span>
 						{{/if}}
-						<button class="destroy pull-right" {{action "removeUser"}}>Destroy</button>
+						<button class="destroy pull-right btn btn-danger" {{action "removeUser"}}>Destroy</button>
 						<div>Alive: {{#if alive}}Yes{{else}}No{{/if}}</div>
 					</li>
 				{{/each}}		
