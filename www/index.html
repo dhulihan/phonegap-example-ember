@@ -61,6 +61,11 @@
 			<br />
 			{{outlet}}	
 
+			{{#if hasHappy}}
+				<button id="clear-happy" {{action "clearHappy"}}>
+					Clear happy ({{numHappy}})
+				</button>
+			{{/if}}
 		</script>
 		<script type="text/x-handlebars" data-template-name="users/index">
 

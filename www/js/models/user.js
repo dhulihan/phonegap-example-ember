@@ -13,7 +13,7 @@ App.User.FIXTURES = [
 	 },
 	 {
 		id: 2,
-		name: "Mac Douglas",
+		name: "Ralph Douglas",
 		email: "mac@example.com",
 		isHappy: false
 	 },
