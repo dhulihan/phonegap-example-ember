@@ -22,8 +22,20 @@ App.UsersController = Ember.ArrayController.extend({
 		},
 		happy: function() {
 			return this.filterBy('isHappy', true).get('length');
-		}.property('@each.isCompleted')
+		}.property('@each.isHappy')
 	},
+	allAreHappy: function (key, value) {
+		console.log(key)
+		if(value === undefined) {
+			// getter
+			return !!this.get('length') && this.isEvery('isHappy');
+		} else {
+			// setter
+			this.setEach('isHappy', value);
+			this.invoke('save');
+			return value;
+		}
+	}.property('@each.isHappy'),	
 	hasHappy: function() {
 		return this.get('numHappy') > 0;
 	}.property('numHappy'),

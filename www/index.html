@@ -60,15 +60,23 @@
 			</ul>
 			<br />
 			{{outlet}}	
-
-			{{#if hasHappy}}
-				<button id="clear-happy" {{action "clearHappy"}}>
-					Clear happy ({{numHappy}})
-				</button>
-			{{/if}}
+			
+			<div class="row">
+				<div class="col-xs-6">
+					<label>
+						{{input type="checkbox" id="toggle-all" checked=allAreHappy}} All Happy? 
+					</label>
+				</div>
+				<div class="col-xs-6 text-right">
+					{{#if hasHappy}}
+						<button {{action "clearHappy"}}>
+							Clear happy ({{numHappy}})
+						</button>
+					{{/if}}
+				</div>
+			</div>
 		</script>
 		<script type="text/x-handlebars" data-template-name="users/index">
-
 			<ul class="list-group">
 				{{#each itemController="user"}}
 					<li {{bind-attr class="happy:happy isEditing:editing :list-group-item"}}>
@@ -85,7 +93,7 @@
 						<button class="destroy pull-right btn btn-danger" {{action "removeUser"}}>Destroy</button>
 						<div>Happy: {{#if isHappy}}Yes{{else}}No{{/if}}</div>
 					</li>
-				{{/each}}		
+				{{/each}}
 			</ul>
 		</script>					
 
@@ -94,6 +102,7 @@
 		<script type="text/javascript" src="lib/js/handlebars.js"></script>		
 		<script type="text/javascript" src="lib/js/ember-1.5.1-debug.js"></script>		
 		<script type="text/javascript" src="lib/js/ember-data.js"></script>		
+		<script type="text/javascript" src="lib/js/localstorage_adapter.js"></script>
 		<script type="text/javascript" src="lib/js/bootstrap.min.js"></script>
 
 		<script type="text/javascript" src="js/app.js"></script>
