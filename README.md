@@ -6,4 +6,6 @@ This is an an example app that runs [ember.js](http://emberjs.com/) on [PhoneGap
 	cd phonegap-example-ember
 	phonegap serve
 
+![Screenshot](screenshot.png?raw=true)
+
 * Written by [Dave Hulihan](http://www.davehulihan.com)
