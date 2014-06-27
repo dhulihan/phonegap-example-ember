@@ -3,17 +3,17 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.phonegap.helloworld"
+        id        = "com.dhulihan.phonegap.ember.example"
         version   = "1.0.0">
 
-    <name>HelloWorld</name>
+    <name>PhoneGap Ember Example</name>
 
     <description>
-        Hello World sample application that responds to the deviceready event.
+        An example ember app that runs in phonegap
     </description>
 
-    <author href="http://phonegap.com" email="support@phonegap.com">
-        PhoneGap Team
+    <author href="http://www.dhulihan.com" email="me@davehulihan.com">
+        Dave Hulihan
     </author>
 
     <!--
